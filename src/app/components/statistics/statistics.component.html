@@ -1,0 +1,19 @@
+<div class="statistics-container">
+  <h3>Доходы</h3>
+  @if (incomeValues.length) {
+  <tui-ring-chart class="chart" [value]="incomeValues" [activeItemIndex]="0">
+    <div class="chart-label">Доходы</div>
+  </tui-ring-chart>
+  } @else {
+  <p>Нет данных о доходах</p>
+  }
+
+  <h3>Расходы</h3>
+  @if (expenseValues.length) {
+  <tui-ring-chart class="chart" [value]="expenseValues" [activeItemIndex]="0">
+    <div class="chart-label">Расходы</div>
+  </tui-ring-chart>
+  } @else {
+  <p>Нет данных о расходах</p>
+  }
+</div>

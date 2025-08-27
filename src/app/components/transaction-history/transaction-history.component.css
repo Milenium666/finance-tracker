@@ -1,0 +1,29 @@
+.history-container {
+  max-height: 400px;
+  margin: 1rem 0;
+}
+.transaction-item {
+  margin-bottom: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.2s;
+}
+.transaction-item:hover {
+  transform: translateX(5px);
+}
+.transaction-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.transaction-category {
+  font-weight: bold;
+}
+.transaction-comment {
+  margin-top: 0.5rem;
+  font-size: 0.8rem;
+  color: var(--tui-text-02);
+}
+.transaction-actions {
+  display: flex;
+  justify-content: space-between;
+}

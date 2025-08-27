@@ -1,0 +1,25 @@
+<tui-scrollbar class="history-container">
+  @if (transactions$ | async; as transactions) {
+  @for (transaction of transactions; track transaction; let i = $index) {
+  <tui-island class="transaction-item" [hoverable]="true" [tuiHint]="transaction.comment || ''"
+    tuiHintDirection="bottom" tuiHintAppearance="onDark" @fadeInOut>
+    <div class="transaction-header">
+      <div class="transaction-content">
+        <div class="transaction-category">{{ transaction.category }}</div>
+        <div class="transaction-amount">
+          {{ transaction.amount | transactionAmount: transaction.type }}
+        </div>
+      </div>
+      <div class="transaction-actions">
+        <button tuiButton size="s" (click)="editTransaction(i)">Редактировать</button>
+        <button tuiButton size="s" (click)="deleteTransaction(i)">Удалить</button>
+      </div>
+    </div>
+  </tui-island>
+  }
+  }
+
+  @else {
+  <p class="empty-message">История транзакций пуста</p>
+  }
+</tui-scrollbar>

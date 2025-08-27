@@ -1,0 +1,68 @@
+.tui-form__error {
+  font-size: 0.75rem;
+  line-height: 1rem;
+  color: red;
+  margin-top: 0.5rem;
+}
+
+.char-counter {
+  font-size: 0.75rem;
+  color: #666;
+  text-align: right;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+.transaction-form {
+  display: flex;
+  flex-direction: column;
+  width: 320px;
+  margin: 0 auto;
+  gap: 0.5rem;
+
+}
+
+.form-row {
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-evenly;
+}
+.fixed-width {
+  width: 200px;
+  box-sizing: border-box;
+  margin: 0.5rem 0;
+}
+
+.comment-container {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease, opacity 0.3s ease;
+  opacity: 0;
+}
+
+.comment-container.visible {
+  max-height: 200px;
+  opacity: 1;
+}
+
+.comment-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.fixed-width,
+.comment-input {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.button-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+
+  button {
+    flex: 1;
+  }
+}

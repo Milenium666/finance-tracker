@@ -1,0 +1,40 @@
+.main-container {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+}
+
+.content-container {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  grid-template-areas:
+    'form history'
+    'stats history';
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.form-section {
+  grid-area: form;
+}
+
+.history-section {
+  grid-area: history;
+}
+
+.stats-section {
+  grid-area: stats;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      'form'
+      'history'
+      'stats';
+  }
+}

@@ -1,0 +1,71 @@
+<form [formGroup]="form" (ngSubmit)="onSubmit()" class="transaction-form">
+  <div class="form-row">
+    @for (typeOption of typeOptions; track typeOption) {
+    <tui-checkbox-block [formControl]="typeControls[typeOption]" (change)="selectType(typeOption)">
+      @if (typeOption === 'income') { Доход } @else { Расход }
+    </tui-checkbox-block>
+    }
+  </div>
+
+  @if (form.get('type')?.invalid && (form.get('type')?.touched || form.get('type')?.dirty)) {
+  <div class="tui-form__error">{{ getErrorMessage('type') }}</div>
+  }
+
+  <tui-select formControlName="category" label="Категория" class="fixed-width">
+    <tui-data-list *tuiDataList>
+      @for (cat of categories; track cat) {
+      <button tuiOption [value]="cat">{{ cat }}</button>
+      }
+    </tui-data-list>
+  </tui-select>
+
+  @if (form.get('category')?.invalid && (form.get('category')?.touched || form.get('category')?.dirty)) {
+  <div class="tui-form__error">{{ getErrorMessage('category') }}</div>
+  }
+
+  <tui-input-number formControlName="amount" label="Сумма" [min]="0" [max]="10_000_000" [postfix]="'₽'" [step]="1"
+    class="fixed-width">
+  </tui-input-number>
+
+  @if (form.get('amount')?.invalid && (form.get('amount')?.touched || form.get('amount')?.dirty)) {
+  <div class="tui-form__error">{{ getErrorMessage('amount') }}</div>
+  }
+
+  <tui-input-date formControlName="date" label="Дата транзакции" [max]="maxDate" class="fixed-width">
+  </tui-input-date>
+
+  @if (form.get('date')?.invalid && (form.get('date')?.touched || form.get('date')?.dirty)) {
+  <div class="tui-form__error">{{ getErrorMessage('date') }}</div>
+  }
+
+  <app-comment-toggle formControlName="addComment" class="fixed-width"></app-comment-toggle>
+
+  @if (form.get('addComment')?.value) {
+  <div class="comment-container visible">
+    <tui-input formControlName="comment" label="Комментарий" [maxlength]="100" class="comment-input"
+      appCommentValidation>
+      Введите комментарий
+    </tui-input>
+    @if (form.get('comment')?.invalid && (form.get('comment')?.touched || form.get('comment')?.dirty)) {
+    <div class="tui-form__error">{{ getErrorMessage('comment') }}</div>
+    }
+    <div class="char-counter">{{ form.get('comment')?.value?.length || 0 }}/100</div>
+  </div>
+  }
+
+  <div class="button-group">
+    <button tuiButton type="submit" size="m" appearance="primary" class="submit-button">
+      @if (isEditMode) {
+      Обновить транзакцию
+      } @else {
+      Добавить транзакцию
+      }
+    </button>
+
+    @if (isEditMode) {
+    <button tuiButton type="button" size="m" appearance="secondary" (click)="cancelEdit()">
+      Отменить
+    </button>
+    }
+  </div>
+</form>

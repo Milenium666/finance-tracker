@@ -1,0 +1,20 @@
+.statistics-container {
+  margin-top: 2rem;
+  padding: 1rem;
+  background: var(--tui-base-02);
+  border-radius: var(--tui-radius-m);
+}
+.statistics-container h3 {
+  margin-bottom: 1rem;
+  text-align: center;
+}
+.chart {
+  margin: 0 auto;
+  width: 300px;
+  height: 300px;
+}
+.chart-label {
+  text-align: center;
+  font-weight: bold;
+  margin-top: -150px;
+}
