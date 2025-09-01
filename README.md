@@ -78,6 +78,7 @@
 ```bash
 npm install
 nx serve
+```
 
 ---
 
