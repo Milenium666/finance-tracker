@@ -78,3 +78,7 @@
 ```bash
 npm install
 nx serve
+
+---
+## 🌐 Демо
+Демо моего проекта можно посмотреть [тут🌐](https://finance-tracker-xi-lime.vercel.app/){target="_blank"}
